@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.db.models import Avg
 
 from .forms import BoardGameCreateForm, BoardGameEditForm, BoardGameDeleteForm
 from .models import BoardGame
@@ -23,6 +24,12 @@ class BoardGameDetailView(DetailView):
     model = BoardGame
     template_name = 'games/game-details.html'
     context_object_name = 'game'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        avg = self.object.reviews.aggregate(avg_rating=Avg('rating'))
+        context['average_rating'] = avg['avg_rating']
+        return context
 
 
 class BoardGameCreateView(LoginRequiredMixin, CreateView):
