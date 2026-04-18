@@ -9,6 +9,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("games/", include("games.urls")),
     path("reviews/", include("reviews.urls")),
+    path("events/", include("events.urls")),
 ]
 
 if settings.DEBUG:

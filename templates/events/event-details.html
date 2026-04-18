@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card p-4 shadow-sm">
+<h2>{{ event.title }}</h2>
+<p><strong>Description:</strong> {{ event.description }}</p>
+<p><strong>Date:</strong> {{ event.date }}</p>
+<p><strong>Location:</strong> {{ event.location }}</p>
+<p><strong>Organizer:</strong> {{ event.organizer.username }}</p>
+<a class="btn btn-warning" href="/events/{{ event.pk }}/edit/">Edit</a> <a class="btn btn-danger" href="/events/{{ event.pk }}/delete/">Delete</a>
+</div>
+{% endblock %}
