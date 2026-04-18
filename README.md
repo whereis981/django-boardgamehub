@@ -28,3 +28,29 @@ No extra environment variables are currently required for local development.
 
 ## Deployment
 The project is prepared for future cloud deployment.
+
+## Project Idea
+This project was created as part of the Django Advanced course.
+The goal is to build a board game community platform where users can browse games, write reviews, and organize board game events.
+
+## Future Improvements
+- REST API endpoints for games and reviews
+- Background tasks for notifications
+- PostgreSQL deployment
+
+## Project Idea
+This project was created as part of the Django Advanced course.
+The goal is to build a board game community platform where users can browse games, write reviews, and organize board game events.
+
+## Future Improvements
+- REST API endpoints for games and reviews
+- Background tasks for notifications
+
+## Project Idea
+This project was created as part of the Django Advanced course.
+The goal is to build a board game community platform where users can browse games, write reviews, and organize board game events.
+
+## Future Improvements
+- REST API endpoints for games and reviews
+- Background tasks for notifications
+- PostgreSQL deployment

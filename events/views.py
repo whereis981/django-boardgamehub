@@ -43,3 +43,6 @@ class EventDeleteView(LoginRequiredMixin, EventOwnerMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context["form"] = EventDeleteForm(instance=self.object)
         return context
+# Event views handle CRUD operations for board game events
+# Only authenticated users can create events
+# Only the organizer can edit or delete their event
