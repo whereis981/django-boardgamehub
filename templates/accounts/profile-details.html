@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h2>{{ profile.user.username }}'s Profile</h2>
+    <p><strong>Email:</strong> {{ profile.user.email }}</p>
+    <p><strong>Bio:</strong> {{ profile.bio|default:"No bio yet." }}</p>
+    <p><strong>City:</strong> {{ profile.city|default:"Not set" }}</p>
+    <p><strong>Favorite Genre:</strong> {{ profile.favorite_genre|default:"Not set" }}</p>
+    <p><strong>Birth Date:</strong> {{ profile.birth_date|default:"Not set" }}</p>
+    <a class="btn btn-warning" href="/accounts/profile/{{ profile.pk }}/edit/">Edit Profile</a>
+</div>
+{% endblock %}

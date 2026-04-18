@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h2>{{ game.title }}</h2>
+    <p><strong>Description:</strong> {{ game.description }}</p>
+    <p><strong>Year:</strong> {{ game.year_published }}</p>
+    <p><strong>Players:</strong> {{ game.min_players }} - {{ game.max_players }}</p>
+    <p><strong>Play Time:</strong> {{ game.play_time }} minutes</p>
+    <p><strong>Complexity:</strong> {{ game.complexity }}</p>
+    <p><strong>Owner:</strong> {{ game.owner.username }}</p>
+    <p><strong>Categories:</strong> {% for c in game.categories.all %}{{ c.name }}{% if not forloop.last %}, {% endif %}{% empty %}None{% endfor %}</p>
+    <p><strong>Mechanics:</strong> {% for m in game.mechanics.all %}{{ m.name }}{% if not forloop.last %}, {% endif %}{% empty %}None{% endfor %}</p>
+
+    {% if user == game.owner %}
+        <div class="mt-3">
+            <a class="btn btn-warning" href="/games/{{ game.slug }}/edit/">Edit</a>
+            <a class="btn btn-danger" href="/games/{{ game.slug }}/delete/">Delete</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

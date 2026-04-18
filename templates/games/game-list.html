@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Board Games</h2>
+    {% if user.is_authenticated %}
+        <a class="btn btn-success" href="/games/create/">Add Game</a>
+    {% endif %}
+</div>
+
+{% if games %}
+    <div class="row g-3">
+        {% for game in games %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ game.title }}</h5>
+                        <p class="card-text">{{ game.description|truncatechars:100 }}</p>
+                        <p><strong>Players:</strong> {{ game.min_players }} - {{ game.max_players }}</p>
+                        <p><strong>Time:</strong> {{ game.play_time }} min</p>
+                        <a class="btn btn-primary" href="/games/{{ game.slug }}/">Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No games yet.</p>
+{% endif %}
+{% endblock %}
